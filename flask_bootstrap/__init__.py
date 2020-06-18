@@ -24,6 +24,7 @@ BOOTSTRAP_VERSION = re.sub(r'^(\d+\.\d+\.\d+).*', r'\1', __version__)
 JQUERY_VERSION = '1.12.4'
 HTML5SHIV_VERSION = '3.7.3'
 RESPONDJS_VERSION = '1.4.2'
+FONTAWESOME_VERSION = "4.6.3"
 
 
 class CDN(object):
@@ -177,6 +178,9 @@ class Bootstrap(object):
         respondjs = lwrap(
             WebCDN('//cdnjs.cloudflare.com/ajax/libs/respond.js/%s/' %
                    RESPONDJS_VERSION))
+        
+        fontawesome = lwrap(
+            WebCDN("//maxcdn.bootstrapcdn.com/font-awesome/%s/" % FONTAWESOME_VERSION), local)
 
         app.extensions['bootstrap'] = {
             'cdns': {
@@ -186,6 +190,7 @@ class Bootstrap(object):
                 'jquery': jquery,
                 'html5shiv': html5shiv,
                 'respond.js': respondjs,
+                "fontawesome": fontawesome,
             },
         }
 
